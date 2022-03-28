@@ -6,12 +6,18 @@ const path = require("path");
 module.exports = {
   development: {
     client: "sqlite3",
+    useNullAsDefault: true, // unique to sqlite3
     connection: {
       filename: "./src/db/connection/lessons.sb3",
     },
     migrations: {
       directory: path.join(__dirname, "src", "db", "migrations"),
     },
-    useNullAsDefault: true, // unique to sqlite3
+    pool: {
+      // Enfore foreign key relationships
+      afterCreate: (conn, done) => {
+        conn.run("PRAGMA foreign_keys = ON", done);
+      },
+    },
   },
 };
