@@ -13,3 +13,9 @@ Content-Type: application/json
   "lessonId": 3,
   "cohort": "webdev-3"
 }
+
+### GET /api/channels/:id
+GET http://localhost:5000/api/channels/V1QC0ZkHec HTTP/1.1
+
+### DELETE /api/channels
+DELETE http://localhost:5000/api/channels/V1QC0ZkHec HTTP/1.1
