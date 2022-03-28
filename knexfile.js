@@ -1,4 +1,4 @@
-// Update with your config settings.
+const path = require("path");
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -7,8 +7,11 @@ module.exports = {
   development: {
     client: "sqlite3",
     connection: {
-      filename: "./data/lessons.sb3",
+      filename: "./src/db/connection/lessons.sb3",
     },
-    useNullAsDefault: true,
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
+    },
+    useNullAsDefault: true, // unique to sqlite3
   },
 };
