@@ -1,0 +1,38 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#794c48",
+    "activityBar.activeBorder": "#182819",
+    "activityBar.background": "#794c48",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#182819",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#794c48",
+    "statusBar.background": "#593835",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#794c48",
+    "statusBarItem.remoteBackground": "#593835",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#593835",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#59383599",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#593835",
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "PORT": "5000"
+    },
+    "local": {
+      "version": "v2",
+      "host": "localhost",
+      "token": "{{$shared nonProdToken}}",
+      "secretKey": "devSecret"
+    },
+    "production": {
+      "host": "example.com",
+      "token": "{{$shared prodToken}}",
+      "secretKey": "prodSecret"
+    }
+  }
+}

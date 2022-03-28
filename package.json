@@ -2,16 +2,18 @@
   "name": "express-postgresql-knex-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gagan Singh",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
