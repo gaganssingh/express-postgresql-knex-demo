@@ -9,7 +9,11 @@ const findAllUsers = async (knex) => {
 };
 
 const findUserByUsername = async (knex, username) => {
-  const response = await knex.from("users").select("*").where({ username });
+  const response = await knex
+    .from("users")
+    .select("*")
+    .where({ username })
+    .first();
   return response;
 };
 
