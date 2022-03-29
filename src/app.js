@@ -6,6 +6,10 @@ const app = express();
 app.use(express.json());
 
 // ROUTES
+app.get("/", (req, res) => {
+  res.json({ message: "Hello from the server!" });
+});
+
 app.use(`/api/lessons`, lessonsRouter);
 
 //
