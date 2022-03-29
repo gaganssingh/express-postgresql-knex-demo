@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "migrate:dev": "npx knex migrate:latest",
+    "migrate:prod": "heroku run npx knex migrate:latest"
   },
   "keywords": [],
   "author": "Gagan Singh",
