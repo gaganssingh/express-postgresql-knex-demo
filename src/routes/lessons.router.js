@@ -16,10 +16,14 @@ lessonsRouter
       res.status(500).end();
     }
   })
-  .post((req, res) => {
-    LessonsService.add(knex, req.body)
-      .then((lesson) => res.status(201).json(lesson))
-      .catch((error) => res.status(500).json({ message: "cannot add lesson" }));
+  .post(async (req, res) => {
+    try {
+      const response = await LessonsService.add(knex, req.body);
+      res.status(201).json(response);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Coundnot add lesson" });
+    }
   });
 
 // api/lessons/:id
@@ -99,6 +103,7 @@ lessonsRouter
         lesson_id,
       };
       const message = await MessagesService.addMessage(knex, newMessage);
+      console.log(message);
       res.status(201).json(message);
     } catch (error) {
       console.error(error);

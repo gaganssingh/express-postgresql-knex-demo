@@ -18,7 +18,8 @@ const findByLessonId = async (knex, lesson_id) => {
 const addMessage = async (knex, message) => {
   const response = await knex("messages")
     .insert(message)
-    .where({ lesson_id: message.lesson_id });
+    .where({ lesson_id: message.lesson_id })
+    .returning("*");
   return response;
 };
 

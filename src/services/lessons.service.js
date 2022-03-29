@@ -4,9 +4,8 @@ const find = async (knex) => {
 };
 
 const add = async (knex, lesson) => {
-  console.log("Add lesson");
-  const [id] = await knex("lessons").insert(lesson);
-  return id;
+  const response = await knex("lessons").insert(lesson).returning("*");
+  return response;
 };
 
 const findById = async (knex, id) => {
