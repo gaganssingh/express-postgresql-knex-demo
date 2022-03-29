@@ -1,5 +1,6 @@
 const express = require("express");
 const lessonsRouter = require("./routes/lessons.router");
+const usersRouter = require("./routes/users.router");
 const app = express();
 
 // MIDDLEWARES
@@ -11,6 +12,6 @@ app.get("/", (req, res) => {
 });
 
 app.use(`/api/lessons`, lessonsRouter);
+app.use(`/api/users`, usersRouter);
 
-//
 module.exports = app;
