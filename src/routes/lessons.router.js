@@ -103,7 +103,6 @@ lessonsRouter
         lesson_id,
       };
       const message = await MessagesService.addMessage(knex, newMessage);
-      console.log(message);
       res.status(201).json(message);
     } catch (error) {
       console.error(error);
