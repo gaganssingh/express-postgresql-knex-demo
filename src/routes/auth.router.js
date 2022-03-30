@@ -1,7 +1,8 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
 const knex = require("../db/connection");
 const UsersService = require("../services/users.service");
-const bcrypt = require("bcryptjs");
+const generateToken = require("../utils/generate-token");
 
 const authRouter = express.Router();
 
@@ -55,15 +56,18 @@ authRouter.route(`/login`).post(async (req, res) => {
       return res.status(401).json({ error: "unauthorized access" });
     }
 
-    // Attach user info to the session object
-    req.session.user = {
-      id: user.id,
-      username: user.username,
-    };
+    // // Attach user info to the session object
+    // req.session.user = {
+    //   id: user.id,
+    //   username: user.username,
+    // };
+
+    const token = generateToken(user);
 
     return res.status(200).json({
       message: "successfully logged in",
       user: user.username,
+      token,
     });
   } catch (error) {
     console.error(error);
